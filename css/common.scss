@@ -1,0 +1,165 @@
+@charset "UTF-8";
+@import 'functions_responsive';
+
+body{
+	font-family: "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN", "Hiragino Kaku 　Gothic Pro", "メイリオ", "ＭＳ ゴシック", sans-serif;
+}
+
+body>main{
+	-ms-overflow-x: hidden;
+}
+header{
+	position: fixed;
+	z-index: 4;
+	width: 100%;
+}
+.topInfo{
+	min-height: 760px;
+	&__blankDiv{
+		height: 120px;
+	}
+	&__breadcrum{
+		border-top: 1px solid #e7e9eb;
+		border-bottom: 1px solid #e7e9eb;
+		padding: 20px 0;
+		&--child{
+			@include flexDisplay(flex-start, center);
+			@include atag(#333, 14px);
+			a.active{
+				font-weight: bold;
+			}
+			p{
+				margin: 0 10px;
+				color: #bbcfe1;
+			}
+		}
+	}
+	&__title{
+		margin-top: 100px;
+		h2{
+			@include modifyTitleTop;
+		}
+	}
+}
+.imgInfo{
+	height: 315px;
+	background-color: #e7e9eb;
+	position: relative;
+	z-index: 0;
+	&__image{
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 115px;
+	}
+}
+.textInfo{
+	padding: 90px 0;
+	border-bottom: 1px solid #e7e9eb;
+	&__title{
+		h2{
+			@include modifyTitleContent;
+		}
+	}
+	&__content{
+		&__list{
+			@include flexDisplay(flex-start, baseline);
+			max-width: 720px;
+			width: 100%;
+			margin: auto;
+			&__child{
+				&:first-child{
+					width: 170px;
+					margin-right: 30px;
+				}
+				h3{
+					@include modifyTextLeft;
+				}
+				p{
+					@include modifyTextRight(#333);
+				}
+			}
+		}
+	}
+	&__btn{
+		max-width: 360px;
+		width: 100%;
+		background-color: #0165be;
+		margin: auto;
+		margin-top: 20px;
+		border-radius: 50px;
+		height: 80px;
+		@include flexDisplay(center, center);
+		color: #fff;
+		font-size: 16px;
+		font-weight: bold;
+		position: relative;
+		a{
+			@include fillPos;
+		}
+		&--iconPdf{
+			margin-right: 5px;
+			width: 25px;
+			height: 25px;
+		}
+		&--download{
+			margin-left: 10%;
+			position: relative;
+			z-index: 0;
+			width: 30px;
+			height: 25px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			span:last-child{
+				position: absolute;
+				width: 25px;
+				height: 10px;
+				background-color: #0165be;
+				border: 2px solid #fff;
+				border-top: none;
+				bottom: 0;
+				left: 50%;
+				z-index: -1;
+				transform: translateX(-50%);
+			}
+		}
+	}
+}
+.timeline{
+	padding: 50px 0 100px;
+	&__title{
+		h2{
+			@include modifyTitleContent;
+		}
+	}
+	&__content{
+		max-width: 820px;
+		width: 100%;
+		margin: auto;
+		.listTimeLine{
+			@include flexDisplay(flex-start, flex-start);
+			&__year{
+				font-size: 28px;
+				font-weight: bold;
+				color: #0165be;
+				margin-right: 20px;
+			}
+			&__linePoint{
+				width: 115px;
+			}
+			&__content{
+				@include modifyTextRight(#333);
+				width: 100%;
+				>div{
+					border: 1px solid #0165be;
+					border-radius: 15px;
+					padding: 20px;
+				}
+				&--blue{
+					background-color: #e8f4fc;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,66 @@
+@mixin tablet{
+	@media screen and (max-width: 1023px) {
+		@content;
+	}
+}
+@mixin mobile{
+	@media screen and (max-width: 767px) {
+		@content;
+	}
+}
+@mixin ipadPortrail{
+	@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+		@content;
+	}
+}
+@mixin ipadLandscape{
+	@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+		@content;
+	}
+}
+@mixin fillPos{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+@mixin flexDisplay($pos1, $pos2){
+	display: flex;
+	justify-content: $pos1;
+	align-items: $pos2;
+}
+@mixin atag($color, $fz){
+	a, a:hover, a:active, a:focus, a:visited{
+		text-decoration: none;
+		color: $color;
+		font-size: $fz;
+		@content;
+	}
+}
+@mixin modifyTitleTop{
+	max-width: 320px;
+	width: 100%;
+	margin: auto;
+	text-align: center;
+	color: #0165be;
+	font-size: 36px;
+	font-weight: bold;
+}
+@mixin modifyTitleContent{
+	font-size: 24px;
+	font-weight: bold;
+	color: #333;
+	text-align: center;
+	margin: 0 0 50px;
+}
+@mixin modifyTextLeft{
+	font-size: 16px;
+	font-weight: bold;
+	color: #333;
+}
+@mixin modifyTextRight($color){
+	font-size: 16px;
+	color: $color;
+	margin-bottom: 15px;
+}
