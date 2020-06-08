@@ -12,9 +12,14 @@ header{
 	position: fixed;
 	z-index: 4;
 	width: 100%;
+	background-color: #fff;
+}
+.mg-bt10{
+	margin-bottom: 10px;
 }
 .topInfo{
-	min-height: 760px;
+	min-height: 720px;
+	transition: all 1s ease;
 	&__blankDiv{
 		height: 120px;
 	}
@@ -40,6 +45,21 @@ header{
 			@include modifyTitleTop;
 		}
 	}
+	@include tablet{
+		min-height: 690px;
+	}
+	@include customScreen(896px){
+		min-height: 640px;
+	}
+	@include mobile{
+		min-height: 550px;
+	}
+	@include customScreen(623px){
+		min-height: 480px;
+	}
+	@include customScreen(480px){
+		min-height: 390px;
+	}
 }
 .imgInfo{
 	height: 315px;
@@ -47,10 +67,29 @@ header{
 	position: relative;
 	z-index: 0;
 	&__image{
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		bottom: 115px;
+		min-height: 315px;
+		position: relative;
+		figure{
+			position: absolute;
+			bottom: 115px;
+			left: 50%;
+			transform: translateX(-50%);
+			max-width: 960px;
+			width: 100%;
+			max-height: 500px;
+		}
+	}
+	@include customScreen(480px){
+		height: auto;
+		&__image{
+			min-height: auto;
+			figure{
+				position: unset;
+				bottom: 0;
+				left: 0;
+				transform: unset;
+			}
+		}
 	}
 }
 .textInfo{
@@ -138,28 +177,95 @@ header{
 		width: 100%;
 		margin: auto;
 		.listTimeLine{
-			@include flexDisplay(flex-start, flex-start);
+			display: flex;
+			justify-content: flex-start;
+			margin-bottom: 15px;
+			min-height: 100px;
 			&__year{
-				font-size: 28px;
-				font-weight: bold;
-				color: #0165be;
 				margin-right: 20px;
+				h3{
+					font-size: 28px;
+					font-weight: bold;
+					color: #0165be;
+				}
 			}
 			&__linePoint{
-				width: 115px;
+				width: 145px;
+				position: relative;
+				.linePoint{
+					display: block;
+					background-color: #0165be;
+					position: absolute;
+					transition: all 0.5s ease;
+					transform: scale(0);
+					&.lp1{
+						width: 25px;
+						height: 25px;
+						top: 0;
+						left: 0;
+						border-radius: 50%;
+						transform-origin: center center;
+					}
+					&.lp2{
+						width: 5px;
+						height: 100%;
+						top: 0;
+						left: calc(20px / 2);
+						transform-origin: top center;
+					}
+					&.lp3{
+						width: 100%;
+						height: 2px;
+						top: calc(25px / 2);
+						left: 0;
+						transform-origin: left center;
+					}
+					&.draw{
+						transform: scale(1);
+					}
+				}
 			}
 			&__content{
 				@include modifyTextRight(#333);
 				width: 100%;
+				margin-bottom: 0;
 				>div{
 					border: 1px solid #0165be;
 					border-radius: 15px;
 					padding: 20px;
+					transition: all 0.7s ease;
+					transform-origin: left center;
+					transform: scale(0);
+					&.draw{
+						transform: scale(1);
+					}
 				}
 				&--blue{
 					background-color: #e8f4fc;
+					@include flexDisplay(flex-start, center);
+					p:first-child{
+						background-color: #0165be;
+						margin-right: 10px;
+						padding: 0 10px;
+						color: #fff;
+					}
 				}
 			}
 		}
+	}
+}
+.footer{
+	background-color: #13293d;
+	position: relative;
+	z-index: 0;
+	&::after{
+		content: '';
+		position: absolute;
+		background-color: #0165be;
+		top: 0;
+		right: 0;
+		bottom: 129px;
+		left: 0;
+		z-index: -1;
 	}
 }

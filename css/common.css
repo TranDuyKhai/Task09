@@ -8,10 +8,15 @@ body > main {
 header {
   position: fixed;
   z-index: 4;
-  width: 100%; }
+  width: 100%;
+  background-color: #fff; }
+
+.mg-bt10 {
+  margin-bottom: 10px; }
 
 .topInfo {
-  min-height: 760px; }
+  min-height: 720px;
+  transition: all 1s ease; }
   .topInfo__blankDiv {
     height: 120px; }
   .topInfo__breadcrum {
@@ -41,6 +46,21 @@ header {
       color: #0165be;
       font-size: 36px;
       font-weight: bold; }
+  @media screen and (max-width: 1023px) {
+    .topInfo {
+      min-height: 690px; } }
+  @media screen and (max-width: 896px) {
+    .topInfo {
+      min-height: 640px; } }
+  @media screen and (max-width: 767px) {
+    .topInfo {
+      min-height: 550px; } }
+  @media screen and (max-width: 623px) {
+    .topInfo {
+      min-height: 480px; } }
+  @media screen and (max-width: 480px) {
+    .topInfo {
+      min-height: 390px; } }
 
 .imgInfo {
   height: 315px;
@@ -48,10 +68,26 @@ header {
   position: relative;
   z-index: 0; }
   .imgInfo__image {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 115px; }
+    min-height: 315px;
+    position: relative; }
+    .imgInfo__image figure {
+      position: absolute;
+      bottom: 115px;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 960px;
+      width: 100%;
+      max-height: 500px; }
+  @media screen and (max-width: 480px) {
+    .imgInfo {
+      height: auto; }
+      .imgInfo__image {
+        min-height: auto; }
+        .imgInfo__image figure {
+          position: unset;
+          bottom: 0;
+          left: 0;
+          transform: unset; } }
 
 .textInfo {
   padding: 90px 0;
@@ -141,24 +177,82 @@ header {
     .timeline__content .listTimeLine {
       display: flex;
       justify-content: flex-start;
-      align-items: flex-start; }
+      margin-bottom: 15px;
+      min-height: 100px; }
       .timeline__content .listTimeLine__year {
-        font-size: 28px;
-        font-weight: bold;
-        color: #0165be;
         margin-right: 20px; }
+        .timeline__content .listTimeLine__year h3 {
+          font-size: 28px;
+          font-weight: bold;
+          color: #0165be; }
       .timeline__content .listTimeLine__linePoint {
-        width: 115px; }
+        width: 145px;
+        position: relative; }
+        .timeline__content .listTimeLine__linePoint .linePoint {
+          display: block;
+          background-color: #0165be;
+          position: absolute;
+          transition: all 0.5s ease;
+          transform: scale(0); }
+          .timeline__content .listTimeLine__linePoint .linePoint.lp1 {
+            width: 25px;
+            height: 25px;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            transform-origin: center center; }
+          .timeline__content .listTimeLine__linePoint .linePoint.lp2 {
+            width: 5px;
+            height: 100%;
+            top: 0;
+            left: calc(20px / 2);
+            transform-origin: top center; }
+          .timeline__content .listTimeLine__linePoint .linePoint.lp3 {
+            width: 100%;
+            height: 2px;
+            top: calc(25px / 2);
+            left: 0;
+            transform-origin: left center; }
+          .timeline__content .listTimeLine__linePoint .linePoint.draw {
+            transform: scale(1); }
       .timeline__content .listTimeLine__content {
         font-size: 16px;
         color: #333;
         margin-bottom: 15px;
-        width: 100%; }
+        width: 100%;
+        margin-bottom: 0; }
         .timeline__content .listTimeLine__content > div {
           border: 1px solid #0165be;
           border-radius: 15px;
-          padding: 20px; }
+          padding: 20px;
+          transition: all 0.7s ease;
+          transform-origin: left center;
+          transform: scale(0); }
+          .timeline__content .listTimeLine__content > div.draw {
+            transform: scale(1); }
         .timeline__content .listTimeLine__content--blue {
-          background-color: #e8f4fc; }
+          background-color: #e8f4fc;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center; }
+          .timeline__content .listTimeLine__content--blue p:first-child {
+            background-color: #0165be;
+            margin-right: 10px;
+            padding: 0 10px;
+            color: #fff; }
+
+.footer {
+  background-color: #13293d;
+  position: relative;
+  z-index: 0; }
+  .footer::after {
+    content: '';
+    position: absolute;
+    background-color: #0165be;
+    top: 0;
+    right: 0;
+    bottom: 129px;
+    left: 0;
+    z-index: -1; }
 
 /*# sourceMappingURL=common.css.map */

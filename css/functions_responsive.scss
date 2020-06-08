@@ -18,6 +18,11 @@
 		@content;
 	}
 }
+@mixin customScreen($screen){
+	@media screen and (max-width: $screen) {
+		@content;
+	}
+}
 @mixin fillPos{
 	position: absolute;
 	top: 0;
