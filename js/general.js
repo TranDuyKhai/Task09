@@ -23,4 +23,10 @@ $(function(){
 			}
 		});
 	}
+	AOS.init({
+		anchorPlacement: 'center bottom',
+		once: true,
+		offset: -150,
+		duration: 500
+	});
 });
