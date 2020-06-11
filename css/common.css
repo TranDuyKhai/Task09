@@ -255,4 +255,33 @@ header {
     left: 0;
     z-index: -1; }
 
+.btt {
+  position: relative; }
+  .btt button {
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45px;
+    height: 50px;
+    border: none;
+    background: none;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #2065c5;
+    display: flex;
+    justify-content: center;
+    outline: unset; }
+    .btt button::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      background-color: #2065c5;
+      width: 2px;
+      height: 30px; }
+    .btt button:hover {
+      opacity: 0.8; }
+
 /*# sourceMappingURL=common.css.map */
